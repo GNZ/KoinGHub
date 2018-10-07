@@ -47,6 +47,27 @@ dependencies {
     implementation libs.lifecycle
     implementation libs.paging
 
+    // Koin
+    implementation libs.koin
+    implementation libs.koinViewModel
+
+    //RxJava
+    implementation libs.rxJava2
+    implementation(libs.rxKotlin2) {
+        exclude module: 'rxjava'
+        exclude module: 'kotlin-stdlib'
+    }
+    implementation(libs.rxAndroid2) {
+        exclude module: 'rxjava'
+    }
+
+    // OkHttp + Retrofit
+    implementation libs.okHttp
+    implementation libs.okHttpLoggingInterceptor
+    implementation libs.retrofit
+    implementation libs.retrofitGsonConverter
+    implementation libs.retrofitRxJava2Adapter
+
     // test
     testImplementation test.junit
     androidTestImplementation test.runner

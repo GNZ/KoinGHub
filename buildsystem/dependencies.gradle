@@ -8,16 +8,34 @@ ext {
     lifecycleVersion = '2.0.0'
     annotationVersion = '1.0.0-alpha1'
     pagingVersion = '2.0.0'
+    koinVersion = '1.0.1'
+    retrofitVersion = '2.4.0'
+    okHttpVersion = '3.11.0'
+    rxJavaVersion = '2.2.0'
+    rxAndroidVersion = '2.1.0'
+    rxKotlinVersion = '2.3.0'
 
     libs = [
-            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
-            ankoCommons     : "org.jetbrains.anko:anko-commons:$ankoVersion",
-            appCompat       : "androidx.appcompat:appcompat:$supportLibraryVersion",
-            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
-            recyclerView    : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
-            lifecycle       : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
-            annotation      : "androidx.annotation:annotation:$annotationVersion",
-            paging          :"androidx.paging:paging-runtime:$pagingVersion"
+            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            ankoCommons           : "org.jetbrains.anko:anko-commons:$ankoVersion",
+            appCompat             : "androidx.appcompat:appcompat:$supportLibraryVersion",
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            recyclerView          : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            lifecycle             : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+            annotation            : "androidx.annotation:annotation:$annotationVersion",
+            paging                : "androidx.paging:paging-runtime:$pagingVersion",
+            koin                  : "org.koin:koin-android:$koinVersion",
+            koinViewModel         : "org.koin:koin-androidx-viewmodel:$koinVersion",
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitGsonConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitRxJava2Adapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            timber                : "com.jakewharton.timber:timber:4.7.0",
+            gson                  : "com.google.code.gson:gson:2.8.0",
+            okHttp                : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            rxJava2                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxKotlin2             : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxAndroid2            : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
 
     proc = [
