@@ -1,4 +1,4 @@
-package com.gnz.koinghub.service.model
+package com.gnz.koinghub.data
 
 data class Repo(
         val id: Int,

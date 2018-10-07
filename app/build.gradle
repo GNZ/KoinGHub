@@ -68,6 +68,9 @@ dependencies {
     implementation libs.retrofitGsonConverter
     implementation libs.retrofitRxJava2Adapter
 
+    // Timber
+    implementation libs.timber
+
     // test
     testImplementation test.junit
     androidTestImplementation test.runner
