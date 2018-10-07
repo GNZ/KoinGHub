@@ -47,6 +47,10 @@ dependencies {
     implementation libs.lifecycle
     implementation libs.paging
 
+    // Koin
+    implementation libs.koin
+    implementation libs.koinViewModel
+
     // test
     testImplementation test.junit
     androidTestImplementation test.runner

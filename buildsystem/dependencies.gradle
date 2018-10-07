@@ -8,6 +8,7 @@ ext {
     lifecycleVersion = '2.0.0'
     annotationVersion = '1.0.0-alpha1'
     pagingVersion = '2.0.0'
+    koinVersion = '1.0.1'
 
     libs = [
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
@@ -17,7 +18,9 @@ ext {
             recyclerView    : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
             lifecycle       : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
             annotation      : "androidx.annotation:annotation:$annotationVersion",
-            paging          :"androidx.paging:paging-runtime:$pagingVersion"
+            paging          : "androidx.paging:paging-runtime:$pagingVersion",
+            koin            : "org.koin:koin-android:$koinVersion",
+            koinViewModel   : "org.koin:koin-androidx-viewmodel:$koinVersion"
     ]
 
     proc = [
