@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KoinGHub</string>
+
+    <string name="repo_details">%s * %d stars this month</string>
 </resources>
