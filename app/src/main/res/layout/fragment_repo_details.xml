@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent_20_white">
@@ -9,6 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/margin_big"
         android:elevation="@dimen/margin_normal">
 
@@ -117,6 +119,31 @@
                 tools:text="5" />
 
             <TextView
+                android:id="@+id/languageTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:gravity="center"
+                android:text="@string/language"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/languageTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/starsTitleTextView" />
+
+            <TextView
+                android:id="@+id/languageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_big"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/languageTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/starsTitleTextView"
+                tools:text="Kotlin" />
+
+            <TextView
                 android:id="@+id/descriptionTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,7 +151,7 @@
                 android:gravity="center"
                 android:text="@string/description"
                 android:textSize="@dimen/text_normalXX"
-                app:layout_constraintTop_toBottomOf="@id/starsTitleTextView" />
+                app:layout_constraintTop_toBottomOf="@id/languageTitleTextView" />
 
             <TextView
                 android:id="@+id/descriptionTextView"
@@ -139,9 +166,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_big"
-                android:layout_marginBottom="@dimen/margin_big"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:textColor="@color/link_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
                 tools:text="https://github.com/GNZ/KoinGHub" />
         </androidx.constraintlayout.widget.ConstraintLayout>

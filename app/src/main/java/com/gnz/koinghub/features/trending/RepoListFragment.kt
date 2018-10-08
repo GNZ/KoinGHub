@@ -11,6 +11,7 @@ import com.gnz.koinghub.R
 import com.gnz.koinghub.application.extensions.observe
 import com.gnz.koinghub.application.extensions.visibleOrGone
 import com.gnz.koinghub.data.*
+import com.gnz.koinghub.features.MainActivity
 import com.gnz.koinghub.features.trending.paging.RepoListAdapter
 import kotlinx.android.synthetic.main.fragment_repo_list.*
 import org.jetbrains.anko.support.v4.toast
@@ -20,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class RepoListFragment : Fragment() {
 
     companion object {
-        val TAG = RepoListFragment::class.simpleName
+        const val TAG = "RepoListFragment"
         fun newInstance() = RepoListFragment()
     }
 
@@ -46,8 +47,10 @@ class RepoListFragment : Fragment() {
 
     private fun initData() {
         with(reposViewModel) {
+            startViewModel(repoAdapter.observeRepoClick())
             observe(observeState(), ::showState)
             observe(reposListLiveData, ::showResult)
+            observe(repoClickLiveData, ::showDetails)
         }
     }
 
@@ -69,4 +72,8 @@ class RepoListFragment : Fragment() {
 
     private fun showResult(pagedList: PagedList<Repo>) =
             repoAdapter.submitList(pagedList)
+
+    private fun showDetails(repo: Repo) {
+        (activity as MainActivity).openDetails(repo)
+    }
 }

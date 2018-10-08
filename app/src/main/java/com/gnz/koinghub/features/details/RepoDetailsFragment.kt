@@ -1,6 +1,7 @@
 package com.gnz.koinghub.features.details
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,8 @@ import kotlinx.android.synthetic.main.fragment_repo_details.*
 import android.content.Intent
 import android.net.Uri
 import android.widget.TextView
+import com.gnz.koinghub.application.extensions.language
+import org.jetbrains.anko.support.v4.act
 
 
 class RepoDetailsFragment : Fragment() {
@@ -22,10 +25,11 @@ class RepoDetailsFragment : Fragment() {
         private val STARS_EXTRA = "STARS_EXTRA"
         private val FORK_EXTRA = "FORK_EXTRA"
         private val WATCH_EXTRA = "WATCH_EXTRA"
+        private val LANGUAGE_EXTRA = "LANGUAGE_EXTRA"
         private val DESCRIPTION_EXTRA = "DESCRIPTION_EXTRA"
         private val URL_EXTRA = "URL_EXTRA"
 
-        val TAG = RepoDetailsFragment::class.simpleName
+        const val TAG = "RepoDetailsFragment"
 
         fun newInstance(repo: Repo): RepoDetailsFragment {
             val bundle = Bundle().apply {
@@ -33,6 +37,7 @@ class RepoDetailsFragment : Fragment() {
                 putInt(STARS_EXTRA, repo.stargazers_count)
                 putInt(FORK_EXTRA, repo.forks_count)
                 putInt(WATCH_EXTRA, repo.watchers_count)
+                putString(LANGUAGE_EXTRA, repo.language)
                 putString(DESCRIPTION_EXTRA, repo.description)
                 putString(URL_EXTRA, repo.html_url)
             }
@@ -50,6 +55,10 @@ class RepoDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        content.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
         arguments?.let {
 
             if (it.containsKey(NAME_EXTRA)) {
@@ -66,6 +75,11 @@ class RepoDetailsFragment : Fragment() {
 
             if (it.containsKey(WATCH_EXTRA)) {
                 watchTextView.text = it.getInt(WATCH_EXTRA).toString()
+            }
+
+            if (it.containsKey(LANGUAGE_EXTRA)) {
+                languageTextView.text = it.getString(LANGUAGE_EXTRA)!!.language(activity as Context)
+
             }
 
             if (it.containsKey(DESCRIPTION_EXTRA)) {
