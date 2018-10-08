@@ -10,10 +10,10 @@
         android:id="@+id/repoNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"
-        android:textSize="18sp"
-        android:textColor="#4E48EF"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:textSize="@dimen/text_normalXX"
+        android:textColor="@color/repo_title"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="GNZ/KoinGHub"/>
 
@@ -21,8 +21,8 @@
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginStart="@dimen/margin_normal"
         app:layout_constraintTop_toBottomOf="@+id/repoNameTextView"
         tools:text="A library injected by KOIN"/>
 
@@ -30,10 +30,10 @@
         android:id="@+id/detailsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:textSize="14sp"
-        android:textColor="#C0C0C0"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:textSize="@dimen/text_smallXX"
+        android:textColor="@color/repo_details"
         app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
         tools:text="Kotlin * 5 starts last month"/>
 

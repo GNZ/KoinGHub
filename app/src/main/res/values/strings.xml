@@ -4,4 +4,6 @@
     <string name="repo_details">%s * %d stars this month</string>
 
     <string name="unknown">Unknown</string>
+
+    <string name="error_loading_repos">Error loading the repositories</string>
 </resources>
