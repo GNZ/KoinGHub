@@ -6,4 +6,7 @@
 
     <color name="repo_title">#4E48EF</color>
     <color name="repo_details">#C0C0C0</color>
+    <color name="link_blue">#0000EE</color>
+
+    <color name="transparent_20_white">#CCFFFFFF</color>
 </resources>

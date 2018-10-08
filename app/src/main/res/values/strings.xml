@@ -6,4 +6,10 @@
     <string name="unknown">Unknown</string>
 
     <string name="error_loading_repos">Error loading the repositories</string>
+
+    <!-- Repo details -->
+    <string name="start">Stars</string>
+    <string name="forks">Forks</string>
+    <string name="watch">Watch</string>
+    <string name="description">Description</string>
 </resources>
