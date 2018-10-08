@@ -11,4 +11,4 @@ val apiModule = module {
 
 fun createApi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
 
-fun createRemoteRepo(api: GithubApi) = RemoteReposRepository(api)
+fun createRemoteRepo(api: GithubApi): TrendingReposRepository = TrendingRemoteReposRepository(api)

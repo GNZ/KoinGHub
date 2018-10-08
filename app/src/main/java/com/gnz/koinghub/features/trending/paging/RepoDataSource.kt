@@ -4,8 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
 import com.gnz.koinghub.data.*
-import com.gnz.koinghub.service.GithubApi
-import com.gnz.koinghub.service.ReposRepository
+import com.gnz.koinghub.service.TrendingReposRepository
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import org.joda.time.DateTime
@@ -13,7 +12,7 @@ import timber.log.Timber
 
 
 open class RepoDataSourceFactory(
-        val repository: ReposRepository,
+        val repository: TrendingReposRepository,
         private val composite: CompositeDisposable,
         val pageSize: Int) : DataSource.Factory<Int, Repo>() {
 
@@ -27,7 +26,7 @@ open class RepoDataSourceFactory(
 }
 
 class RepoListDataSource(
-        private val repository: ReposRepository,
+        private val repository: TrendingReposRepository,
         private val composite: CompositeDisposable,
         private val pageSize: Int) : PageKeyedDataSource<Int, Repo>() {
 
@@ -59,7 +58,7 @@ class RepoListDataSource(
     private fun getTrendingRepos(page: Int, callback: (List<Repo>) -> Unit) {
         currentMoviesState.postValue(Loading)
         composite.add(
-                repository.getTrendingRepos(MONTH, pageSize, page).subscribeBy(
+                repository.getTrendingAndroidRepos(MONTH, pageSize, page).subscribeBy(
                         onSuccess = { repoList ->
                             when {
                                 repoList.isEmpty() -> currentMoviesState.postValue(EmptyState)

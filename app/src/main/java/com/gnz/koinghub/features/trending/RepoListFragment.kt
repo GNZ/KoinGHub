@@ -19,6 +19,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepoListFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = RepoListFragment()
+    }
+
     val reposViewModel by viewModel<RepoViewModel>()
 
     private lateinit var repoAdapter: RepoListAdapter

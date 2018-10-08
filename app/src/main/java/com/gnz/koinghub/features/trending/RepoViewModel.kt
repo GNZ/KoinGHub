@@ -1,7 +1,6 @@
 package com.gnz.koinghub.features.trending
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
@@ -10,11 +9,11 @@ import com.gnz.koinghub.data.Repo
 import com.gnz.koinghub.data.ResourceState
 import com.gnz.koinghub.features.trending.paging.RepoDataSourceFactory
 import com.gnz.koinghub.features.trending.paging.RepoListDataSource
-import com.gnz.koinghub.service.ReposRepository
+import com.gnz.koinghub.service.TrendingReposRepository
 import io.reactivex.disposables.CompositeDisposable
 
 
-class RepoViewModel(repository: ReposRepository) : ViewModel() {
+class RepoViewModel(repository: TrendingReposRepository) : ViewModel() {
 
     private val config = PagedList.Config.Builder()
             .setPageSize(PAGE_SIZE)
