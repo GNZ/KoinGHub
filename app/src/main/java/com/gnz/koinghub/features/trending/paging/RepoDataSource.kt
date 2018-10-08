@@ -5,27 +5,31 @@ import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
 import com.gnz.koinghub.data.*
 import com.gnz.koinghub.service.GithubApi
+import com.gnz.koinghub.service.ReposRepository
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
+import org.joda.time.DateTime
 import timber.log.Timber
 
 
 open class RepoDataSourceFactory(
-        val api: GithubApi,
-        private val composite: CompositeDisposable) : DataSource.Factory<Int, Repo>() {
+        val repository: ReposRepository,
+        private val composite: CompositeDisposable,
+        val pageSize: Int) : DataSource.Factory<Int, Repo>() {
 
     val movieListDataSourceLiveData = MutableLiveData<RepoListDataSource>()
 
     override fun create(): DataSource<Int, Repo> {
-        val repoListDataSource = RepoListDataSource(api, composite)
+        val repoListDataSource = RepoListDataSource(repository, composite, pageSize)
         movieListDataSourceLiveData.postValue(repoListDataSource)
         return repoListDataSource
     }
 }
 
 class RepoListDataSource(
-        private val api: GithubApi,
-        private val composite: CompositeDisposable) : PageKeyedDataSource<Int, Repo>() {
+        private val repository: ReposRepository,
+        private val composite: CompositeDisposable,
+        private val pageSize: Int) : PageKeyedDataSource<Int, Repo>() {
 
     val currentMoviesState = MutableLiveData<ResourceState>()
 
@@ -55,13 +59,13 @@ class RepoListDataSource(
     private fun getTrendingRepos(page: Int, callback: (List<Repo>) -> Unit) {
         currentMoviesState.postValue(Loading)
         composite.add(
-                api.trendingAndroidRepos(PAGE_SIZE, page).subscribeBy(
+                repository.getTrendingRepos(MONTH, pageSize, page).subscribeBy(
                         onSuccess = { repoList ->
                             when {
-                                repoList.items.isEmpty() -> currentMoviesState.postValue(EmptyState)
+                                repoList.isEmpty() -> currentMoviesState.postValue(EmptyState)
                                 else -> {
                                     currentMoviesState.postValue(PopulateState)
-                                    callback.invoke(repoList.items)
+                                    callback.invoke(repoList)
                                 }
                             }
                         },
@@ -74,7 +78,7 @@ class RepoListDataSource(
     }
 
     companion object {
+        private val MONTH = DateTime().minusMonths(1).toString("yyyy-MM-dd")
         private const val INITIAL_PAGE = 1
-        const val PAGE_SIZE = 30
     }
 }
