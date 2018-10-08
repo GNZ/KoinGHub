@@ -20,11 +20,16 @@ class RepoListAdapter : PagedListAdapter<Repo, RepoViewHolder>(ItemCallback) {
             RepoViewHolder(parent)
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
-        getItem(position)?.let {repo ->
+        getItem(position)?.let { repo ->
             holder.repoName.text = repo.full_name
             holder.repoDescription.text = repo.description
-            holder.repoDetails.text = holder.itemView.context.getString(R.string.repo_details)
-                    .format(repo.language, repo.stargazers_count)
+            with(holder.itemView.context) {
+                val language = if (repo.language == "null") {
+                    getString(R.string.unknown)
+                } else repo.language
+                holder.repoDetails.text = getString(R.string.repo_details)
+                        .format(repo.language, repo.stargazers_count)
+            }
         }
     }
 
@@ -40,8 +45,8 @@ class RepoListAdapter : PagedListAdapter<Repo, RepoViewHolder>(ItemCallback) {
     }
 }
 
-class RepoViewHolder(parent: ViewGroup): RecyclerView.ViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.repo_viewholder, parent, false)){
+class RepoViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.repo_viewholder, parent, false)) {
     val repoName = itemView.repoNameTextView
     val repoDescription = itemView.descriptionTextView
     val repoDetails = itemView.detailsTextView

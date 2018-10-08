@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface GithubApi {
 
     @GET("search/repositories?sort=stars")
-    fun searchRepositories(@Query("q") query: String,
+    fun searchRepositories(@Query(encoded = true, value = "q") query: String,
                            @Query("per_page") perPage: Int,
                            @Query("page") page: Int):
             Single<RepoList>
