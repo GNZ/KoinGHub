@@ -81,7 +81,6 @@ dependencies {
     implementation libs.jodaTime
 
     // test
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     testImplementation test.junit
     androidTestImplementation test.runner
     androidTestImplementation test.espresso
