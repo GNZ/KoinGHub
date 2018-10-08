@@ -1,4 +1,4 @@
-package com.gnz.koinghub.features
+package com.gnz.koinghub.features.details
 
 
 import android.os.Bundle
@@ -24,6 +24,9 @@ class RepoDetailsFragment : Fragment() {
         private val WATCH_EXTRA = "WATCH_EXTRA"
         private val DESCRIPTION_EXTRA = "DESCRIPTION_EXTRA"
         private val URL_EXTRA = "URL_EXTRA"
+
+        val TAG = RepoDetailsFragment::class.simpleName
+
         fun newInstance(repo: Repo): RepoDetailsFragment {
             val bundle = Bundle().apply {
                 putString(NAME_EXTRA, repo.full_name)

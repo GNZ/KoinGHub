@@ -20,6 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class RepoListFragment : Fragment() {
 
     companion object {
+        val TAG = RepoListFragment::class.simpleName
         fun newInstance() = RepoListFragment()
     }
 
