@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_20_white">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margin_big"
+        android:elevation="@dimen/margin_normal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            tools:context=".features.details.RepoDetailsFragment">
+
+            <TextView
+                android:id="@+id/repoNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_big"
+                android:gravity="center"
+                android:textColor="@color/repo_title"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="GNZ/KoinGHub" />
+
+            <View
+                android:id="@+id/separationTitleLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/margin_big"
+                android:background="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/repoNameTextView" />
+
+            <TextView
+                android:id="@+id/starsTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/start"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/starsTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine" />
+
+            <TextView
+                android:id="@+id/starsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_big"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/forksTitleTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/starsTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine"
+                tools:text="5" />
+
+            <TextView
+                android:id="@+id/forksTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/forks"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/forksTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/starsTextView"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine" />
+
+            <TextView
+                android:id="@+id/forksTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_big"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/watchTitleTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/forksTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine"
+                tools:text="5" />
+
+            <TextView
+                android:id="@+id/watchTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/watch"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/watchTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/forksTextView"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine" />
+
+            <TextView
+                android:id="@+id/watchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/watchTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/separationTitleLine"
+                tools:text="5" />
+
+            <TextView
+                android:id="@+id/languageTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:gravity="center"
+                android:text="@string/language"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toStartOf="@+id/languageTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/starsTitleTextView" />
+
+            <TextView
+                android:id="@+id/languageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_big"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/languageTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/starsTitleTextView"
+                tools:text="Kotlin" />
+
+            <TextView
+                android:id="@+id/descriptionTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:gravity="center"
+                android:text="@string/description"
+                android:textSize="@dimen/text_normalXX"
+                app:layout_constraintTop_toBottomOf="@id/languageTitleTextView" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_big"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTitleTextView"
+                tools:text="Something something" />
+
+            <TextView
+                android:id="@+id/urlTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:textColor="@color/link_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                tools:text="https://github.com/GNZ/KoinGHub" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

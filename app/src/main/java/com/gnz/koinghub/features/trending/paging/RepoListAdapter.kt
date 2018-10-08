@@ -6,6 +6,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.gnz.koinghub.R
+import com.gnz.koinghub.application.extensions.language
 import com.gnz.koinghub.data.Repo
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -24,11 +25,12 @@ class RepoListAdapter : PagedListAdapter<Repo, RepoViewHolder>(ItemCallback) {
             holder.repoName.text = repo.full_name
             holder.repoDescription.text = repo.description
             with(holder.itemView.context) {
-                val language = if (repo.language == "null") {
-                    getString(R.string.unknown)
-                } else repo.language
+                val language = repo.language.language(holder.itemView.context)
                 holder.repoDetails.text = getString(R.string.repo_details)
                         .format(repo.language, repo.stargazers_count)
+                holder.itemView.setOnClickListener {
+                    clickSubject.onNext(repo)
+                }
             }
         }
     }

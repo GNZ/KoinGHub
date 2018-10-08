@@ -16,11 +16,11 @@ open class RepoDataSourceFactory(
         private val composite: CompositeDisposable,
         val pageSize: Int) : DataSource.Factory<Int, Repo>() {
 
-    val movieListDataSourceLiveData = MutableLiveData<RepoListDataSource>()
+    val repoListDataSourceLiveData = MutableLiveData<RepoListDataSource>()
 
     override fun create(): DataSource<Int, Repo> {
         val repoListDataSource = RepoListDataSource(repository, composite, pageSize)
-        movieListDataSourceLiveData.postValue(repoListDataSource)
+        repoListDataSourceLiveData.postValue(repoListDataSource)
         return repoListDataSource
     }
 }

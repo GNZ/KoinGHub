@@ -43,6 +43,7 @@ dependencies {
     implementation libs.constraintLayout
     implementation libs.annotation
     implementation libs.legacySupport
+    implementation libs.cardView
 
     // Architectural
     implementation libs.lifecycle
